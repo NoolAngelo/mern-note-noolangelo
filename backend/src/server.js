@@ -1,11 +1,11 @@
-import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import express from "express";
 import path from "path";
 
-import noteRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "./config/db.js";
 import rateLimiter from "./middleware/rateLimiter.js";
+import noteRoutes from "./routes/notesRoutes.js";
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
   app.use(
     cors({
       origin: "http://localhost:5173",
-    })
+    }),
   );
 }
 
@@ -33,6 +33,14 @@ app.use(rateLimiter);
 app.use("/api/notes", noteRoutes);
 
 if (process.env.NODE_ENV === "production") {
+  app.use((req, res, next) => {
+    res.setHeader(
+      "Content-Security-Policy",
+      "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'",
+    );
+    next();
+  });
+
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
   app.get("*", (req, res) => {
