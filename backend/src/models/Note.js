@@ -14,7 +14,7 @@ const noteSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true } // createdAt, udateAt
+  { timestamps: true } // createdAt, updatedAt
 );
 
 const Note = mongoose.model("Note", noteSchema);

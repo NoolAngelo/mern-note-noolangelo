@@ -1,6 +1,6 @@
 # MERN Notes App
 
-A full-stack note-taking application built with the MERN stack (MongoDB, Express, React, Node.js) featuring a modern UI with grid background effects and rate limiting.
+A full-stack note-taking application built with the MERN stack (MongoDB, Express, React, Node.js) featuring a modern UI with radial gradient background and rate limiting.
 
 ## Features
 
@@ -20,6 +20,7 @@ A full-stack note-taking application built with the MERN stack (MongoDB, Express
 - React Router
 - Axios
 - Lucide Icons
+- React Hot Toast
 
 **Backend:**
 - Node.js & Express

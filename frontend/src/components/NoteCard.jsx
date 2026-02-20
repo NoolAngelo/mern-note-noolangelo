@@ -1,4 +1,4 @@
-import { AppWindow, PenSquareIcon, Trash2Icon } from "lucide-react";
+import { PenSquareIcon, Trash2Icon } from "lucide-react";
 import { Link } from "react-router";
 import { formatDate } from "../lib/utils";
 import api from "../lib/axios";
